@@ -10,7 +10,7 @@ const personSchema = new mongoose.Schema({
   },
   work: {
     type: String, // Change this to explicitly define 'work' as a String
-    enum: ["chef", "waiter", "manger"],
+    enum: ["Chef", "Waiter", "Manger"],
     required: true,
   },
   mobile: {
