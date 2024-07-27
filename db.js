@@ -6,6 +6,8 @@ const MongoURLLocal = process.env.MongoURLLocal;
 mongoose.connect(MongoURLServer, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
+  ssl: true, // Ensure SSL is enabled
+  tlsAllowInvalidCertificates: false, // Ensure proper SSL certificate validation
 });
 
 const db = mongoose.connection;
