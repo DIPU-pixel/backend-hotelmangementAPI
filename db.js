@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 require("dotenv").config();
-const MongoURLServer =process.env.MongoURLServer ;
+const MongoURLServer =process.env.MongoURLServer ; ;
+const MongoURLLocal =process.env.MongoURLLocal ;
+
+
 
 
 mongoose.connect(MongoURLServer, {
@@ -9,6 +12,7 @@ mongoose.connect(MongoURLServer, {
 });
 
 const db =mongoose.connection;
+console.log(db)
 
 db.on("connected",()=>{
     console.log("db is connected")
