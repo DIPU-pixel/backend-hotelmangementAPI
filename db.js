@@ -4,10 +4,9 @@ const MongoURLServer = process.env.MongoURLServer;
 const MongoURLLocal = process.env.MongoURLLocal;
 
 mongoose.connect(MongoURLServer, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  ssl: true, // Ensure SSL is enabled
-  tlsAllowInvalidCertificates: false, // Ensure proper SSL certificate validation
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+   
 });
 
 const db = mongoose.connection;
@@ -22,5 +21,7 @@ db.on("error", (error) => {
 db.on("disconnected", () => {
   console.log("db is Disconnected");
 });
+
+
 
 module.exports = db;
