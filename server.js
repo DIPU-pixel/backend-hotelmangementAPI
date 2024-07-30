@@ -6,9 +6,19 @@ const personRouter = require("./routes/personRoutes");
 const menuRouter = require("./routes/menuItemRoutes");
 require("dotenv").config();
 const PORT = process.env.PORT || 3000;
+const cors = require("cors");
 
 app.use(bodyParser.json());
+// Allow all origins
+const corsOptions = {
+  origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  allowedHeaders: ['Content-Type'],
+};
 
+app.use(cors(corsOptions));
+
+app.use(express.json()); // Parse JSON bodies
 // Middleware function
 const logRequest = (req, res, next) => {
   console.log(
